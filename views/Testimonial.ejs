@@ -1,0 +1,120 @@
+<h1 style="text-align: center";>Testimonial</h1>
+  
+<!-- <div class="body-content">
+    <% userData.forEach(function(userData) { %>
+        <h1><%= userData.Fastname %></h1>
+        <% }); %>
+</div> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FullStack</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<style>
+    .card{
+        margin: 40px;
+        padding: 3% 5%;
+    }
+    .card-title{
+        text-align: center;
+    }
+  .table-responsive{
+      margin: 2% 0%;
+  }
+</style>
+<body>
+    <div class="main-wrapper">
+
+
+        <div class="page-wrapper">
+
+
+            <div class="page-content">
+
+                <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="card-title mb-0">Testimonial List</h6>
+                                    <a href="showTestimonial"> <button class="btn btn-primary btn-icon-text mb-2 mb-md-0" >Add User</button></a>
+
+                                    <a href="logout"  
+                                    onclick="return confirm('Are you sure you want to logout ?')" > <button style="float: right;" class="btn btn-primary btn-icon-text mb-2 mb-md-0" >Logout</button></a>
+                                    
+                                </div>
+                                <div class="table-responsive">
+                                    <table id="dataTableExample" class="table table-striped" style="font-size: 16px;">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr No.</th>
+                                                <th>Name</th>
+                                                <th>Designation
+                                                </th>
+                                                <th>Description
+                                                </th>
+                                            
+                                                <th>Image</th>
+                                                <!-- <th>Hobbies</th>
+                                                <th>Country</th>
+                                                <th>Address</th>
+                                                <th>Pincode</th> -->
+                                               
+                                            </tr>
+                                        </thead>
+                                        <% i=1 %>
+                                        <% userData.forEach(function(user){ %>
+                                        <tr>  
+                                            <td><%= i %></td>                                 
+                                            <td><%= user.name %></td>
+                                            <td><%= user.designation %></td>
+                                            <td><%= user.description %></td>
+                                           
+                                            <td><a href="<%= user.Image %>" target="_blank">
+                                                
+                                            <img src="<%= user.Image %>" style = "height: 50px;
+                                                width: 50px;"></td>
+                                            </a>
+                                            <!-- <td><%= user.country %></td>
+                                            <td><%= user.address %></td>
+                                            <td><%= user.pincode %></td> -->
+                                            <td>
+                                                <a href="/editTestimonial/<%= user._id %>" style ="height: 30px;
+                                                    width: 60px;
+                                                    line-height: 30px;
+                                                    margin:5px;"
+                                                    class="btn btn-sm btn-primary">Edit</a>
+                                                <a href="/api/testimonial/delete/<%= user._id %>" style ="height: 30px;
+                                                    width: 90px;
+                                                    line-height: 30px;
+                                                    margin:5px;"
+                                                    
+                                                    onclick="return confirm('Are you sure you want to delete the record ?')"  class="btn btn-sm btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                        <% i=i+1 %>
+                                        <% }); %> 
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </div>
+   
+</body>
+</html>
+
+
